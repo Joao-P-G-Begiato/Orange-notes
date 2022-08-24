@@ -1,5 +1,12 @@
+import { Header } from '../components/Header/Header'
+
 export function Landpage(){
     return (
-        <h1>Landpage</h1>
+        <>
+            <Header />
+            <main>
+                <h1>Landpage</h1>
+            </main>
+        </>
     )
 }

@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { Landpage } from './pages/Landpage'
-import { Login } from './pages/Landpage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Landpage } from './pages/Landpage.jsx'
+import { Login } from './pages/Login.jsx'
+import { Home } from './pages/Home.jsx'
 import './reset.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
