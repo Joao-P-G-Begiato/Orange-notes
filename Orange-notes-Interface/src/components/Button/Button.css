@@ -1,0 +1,16 @@
+button{
+    box-sizing: border-box;
+    background-color: #ff5a23;
+    border-radius: 20px;
+    width: 100px;
+    height: 48px;
+    margin: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: #ff3200;
+    border-bottom-width: 3px;
+    border-right-style: solid;
+    border-right-color: #ff3200;
+    border-right-width: 3px;
+    color: #fff;
+    font-size: 21px;
+}
