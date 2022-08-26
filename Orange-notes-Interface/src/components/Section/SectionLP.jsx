@@ -1,10 +1,22 @@
 import './Section.css'
-import { Div } from '../Div/Div'
+import '../Div/Div.css'
 
 export function Section(props){
     return (
         <section className={props.className}>
-            <Div className ={props.dclassName} title={props.title} tclassName={props.tclassName} content={props.content} content2={props.content2} cclassName={props.cclassName}/>
+            <div className={props.className}>
+                <div className={props.tclassName}>
+                {props.title}
+                </div>
+                <div className={props.cclassName}>
+                    <div className="divmenor">
+                        {props.content}
+                    </div>
+                    <div className="divmenor">
+                        {props.content2}
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }

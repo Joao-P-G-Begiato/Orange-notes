@@ -6,7 +6,7 @@ import {Button} from '../Button/Button.jsx'
 export function Header(props){
     return (
         <header className="navbar">
-            <img className="img" src={logo} />
+            <Link to={props.home} ><img className="img" src={logo} /></Link>
             <h1 className="ONtitle">Orange Notes</h1>
             <nav>
                 <Link to={props.path}>
