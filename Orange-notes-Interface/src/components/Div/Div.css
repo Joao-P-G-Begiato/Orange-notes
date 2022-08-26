@@ -1,0 +1,33 @@
+.title{
+    font-size: 30px;
+    width: 80vw;
+    color: #FF5a23;
+    background-color: rgba(32,32,32, 0.98);
+    margin: 2vh 0 0 0;
+    Padding: 10px;
+    border-radius: 10px;
+    font-weight: 1000;
+    border:#FF5a23 solid 1px;
+}
+
+.conteudo{
+    font-size: 24px;
+    width: 80vw;
+    color: #FFFFFF;
+    background-color: rgba(32,32,32, 0.98);
+    Padding: 10px;
+    margin: 2vh 0 0 0;
+    border-radius: 10px;
+    border:#FF5a23 solid 1px;
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.divmenor{
+    width: 40vw;
+    margin: 0 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
