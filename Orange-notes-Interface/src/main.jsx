@@ -10,11 +10,11 @@ import './reset.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element = {<Landpage/>} />
-      <Route path='/login' element = {<Login />} />
-      <Route path='/home' element = {<Home />} />
-    </Routes>
+      <Routes>
+        <Route path='/' element = {<Landpage/>} />
+        <Route path='/login' element = {<Login />} />
+        <Route path='/home' element = {<Home />} />
+      </Routes>
     <Footer />
     </BrowserRouter>
   </React.StrictMode>

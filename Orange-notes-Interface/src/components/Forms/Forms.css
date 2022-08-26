@@ -1,0 +1,10 @@
+form{
+    background-color: rgba(32,32,32, 0.98);
+    height: 300px;
+    width: 20vw;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
