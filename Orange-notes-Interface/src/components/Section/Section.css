@@ -1,0 +1,12 @@
+.section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    margin: 0;
+    gap: 2vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("https://static.mundoeducacao.uol.com.br/vestibular/vestibular/o-estudante-muitas-vezes-fica-confuso-quanto-conciliacao-rotina-colegio-os-estudos-vestibular-585c0adebae08.jpg");
+}

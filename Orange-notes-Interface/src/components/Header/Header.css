@@ -5,10 +5,19 @@
     justify-content: space-between;
     align-items: center;
     height: 80px;
+    border-bottom: 3px solid #FF5A23;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    right: 0;
 }
 
 .img{
-    width: 100px;
-    height: auto ;
+    width: 52px;
     margin: 10px 30px;
+}
+
+.ONtitle{
+    font-size: 72px;
+    font-family: 'Montserrat', sans-serif;
 }

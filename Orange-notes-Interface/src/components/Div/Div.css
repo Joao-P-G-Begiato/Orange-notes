@@ -1,0 +1,19 @@
+.title{
+    font-size: 48px;
+    width: 60vw;
+    color: #FF5a23;
+    background-color: rgba(32,32,32, 0.98);
+    margin: 2vh 0 0 0;
+    Padding: 10px;
+    border-radius: 10px;
+}
+
+.conteudo{
+    font-size: 24px;
+    width: 30vw;
+    color: #FFFFFF;
+    background-color: rgba(32,32,32, 0.98);
+    Padding: 10px;
+    margin: 2vh 0 0 0;
+    border-radius: 10px;
+}
