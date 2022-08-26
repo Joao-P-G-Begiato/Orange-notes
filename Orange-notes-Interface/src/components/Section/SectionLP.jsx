@@ -4,8 +4,7 @@ import { Div } from '../Div/Div'
 export function Section(props){
     return (
         <section className={props.className}>
-            <Div content={props.title} className={props.tclassName}/>
-            <Div content={props.content} className={props.cclassName}/>
+            <Div className ={props.dclassName} title={props.title} tclassName={props.tclassName} content={props.content} content2={props.content2} cclassName={props.cclassName}/>
         </section>
     )
 }
