@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Landpage } from './pages/Landpage.jsx'
 import { Login } from './pages/Login.jsx'
 import { Home } from './pages/Home.jsx'
+import {Footer} from './components/Footer/Footer.jsx'
 import './reset.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/login' element = {<Login />} />
       <Route path='/home' element = {<Home />} />
     </Routes>
+    <Footer />
     </BrowserRouter>
   </React.StrictMode>
 )
