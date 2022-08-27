@@ -1,23 +1,34 @@
 import { useEffect, useState } from "react"
 import { InputList} from '../Input/InputList.jsx'
+import { Button } from "../Button/Button.jsx"
 
 export function Card(props){
     const [column ,setColumn] =useState('Backlog')
+    const[classNameS , setClassNameS] = useState("hidden")
     useEffect(()=>{
         if(props.status == "A Fazer"){
             setColumn('Backlog')
+            setClassNameS("")
         }else if(props.status == "Fazendo"){
             setColumn('Doing')
-        }else{
+            setClassNameS("")
+        }else if(props.status == "Feito"){
             setColumn('Done')
+            setClassNameS("")
+        }else{
+            setColumn('')
         }
     },[props.status])
+
     return (
-        <div className={column}>
-            <p className="itemTitle">{props.title}</p>
+        <div className= {`card ${column}`} >
+            <p className="itemTitle"><b>{props.title}</b></p>
             <p className="itemDescr">{props.descr}</p>
-            <p className="status">{props.status}</p>
-            <Button label={props.label}/>
+            <p className={classNameS}>{props.status}</p>
+            <Button label={props.label} callback={()=>{
+                props.callback()
+                props.changeData(props.data.temas[props.i].tarefas)
+            }}/>
         </div>
         
     )
