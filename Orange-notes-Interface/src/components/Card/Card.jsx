@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { InputList} from '../Input/InputList.jsx'
 
 export function Card(props){
     const [column ,setColumn] =useState('Backlog')
