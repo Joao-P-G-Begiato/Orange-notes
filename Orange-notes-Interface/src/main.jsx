@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Landpage } from './pages/Landpage.jsx'
@@ -6,6 +6,13 @@ import { Login } from './pages/Login.jsx'
 import { Home } from './pages/Home.jsx'
 import {Footer} from './components/Footer/Footer.jsx'
 import './reset.css'
+import {useState , useEffect} from 'react'
+
+const [userLogged, setUserLogged] = useState('')
+
+useEffect(()=>{
+  
+}, [])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
