@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 import { Requisicao } from "../services/Requisicao"
 import { Header } from '../components/Header/Header'
+import { Button } from "../components/Button/Button"
 import {CardContainer} from '../components/CardContainer/CardContainer'
 import './styles/Home.css'
 
 export function Home(){
-    const [userLogged, setUserLogged] = useState({})
+    // const [userLogged, setUserLogged] = useState({})
     const [container, setContainer] = useState("themeContainer")
-    const [containerDois, setContainerDois] = useState("hidden")
     const [data, setData] = useState(example.temas)
-    const [status, setStatus] = useState("")
+    const [formsInfo, setFormsInfo] = useState("")
+
 
 // useEffect(()=>{
 //     Requisicao("https://randomuser.me/api/")
@@ -18,16 +19,19 @@ export function Home(){
 //     })
 // }, [])
 
-// console.log(userLogged)
     return(
         <>
         <Header label="Logout" path="/" home="/home" />
         <main className="homeMain">
-            <h1 className="h1Home">Seja bem vindo / vinda / vinde {example.nome}.</h1>
-            <p className="pHome">Selecione um de seus temas:</p>
-            <CardContainer sClassName="hidden" className={container} changeContainer={()=>{
-                setContainer("taskContainer")
+            <h1 className="h1Home">Seja bem vindo / vinda / vinde {example.nome}. </h1>
+            <p className="pHome">Selecione um de seus temas <Button label="+" className="add" callback={()=>{
+                data.push(formsInfo)
+                console.log(data)
+            }}/></p>
+            <CardContainer sClassName="hidden" containerName={container} changeContainer={()=>{
+                setContainer()
             }} changeData={setData} data={example} dados={data} label="entrar"/>
+
         </main>
         </>
     )

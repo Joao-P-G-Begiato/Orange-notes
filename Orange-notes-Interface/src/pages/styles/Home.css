@@ -15,24 +15,11 @@
     padding-left: 20px;
 }
 
-.Backlog{
-    color:blueviolet
-}
-
-.Doing{
-    color: yellow
-}
-
-.Done{
-    color: green
-}
-
 .themeContainer{
     margin-top: 20px;
     margin-left: 20px;
     display: grid;
     grid-template-columns: 25% 25% 25%;
-
 }
 
 .card{
@@ -48,5 +35,43 @@
 }
 
 .taskContainer{
+    display: grid;
+    grid-template-columns: 100%;
+}
 
+p.itemDescr{
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    text-align: center;
+    color:#e9973A
+}
+
+div.Backlog,div.Done,div.Doing{
+    width: 30vw;
+    font-size: 14px;
+}
+
+.Backlog{
+    color:blueviolet
+}
+
+.Doing{
+    color: yellow;
+}
+div.Doing{
+    margin-left: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Done{
+    color: chartreuse
+}
+
+.add{
+    width: 25px;
+    height: 25px;
+    border-radius: 80%;
+    border: 0px;
 }
