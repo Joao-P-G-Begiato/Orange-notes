@@ -1,6 +1,6 @@
 import { Header } from '../components/Header/Header'
 import {Section} from '../components/Section/SectionLP'
-import {Footer} from '../components/Footer/Footer.jsx'
+
 
 export function Landpage(){
     return (
@@ -30,7 +30,6 @@ export function Landpage(){
                 do seu notion com os exercícios ou até mesmo o link do certificado referente a vídeo aulas e etc...`}
                 />
             </main>
-            <Footer />
         </>
     )
 }
