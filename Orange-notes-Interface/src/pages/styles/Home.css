@@ -1,0 +1,28 @@
+.homeMain{
+    margin-top: 83px;
+    background-color: rgba(32,32,32, 0.98);
+    height: calc(100% - 203px);
+}
+
+.h1Home{
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 38px;
+}
+
+.pHome{
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.Backlog{
+    color:blueviolet
+}
+
+.Doing{
+    color: yellow
+}
+
+.Done{
+    color: green
+}

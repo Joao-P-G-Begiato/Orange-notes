@@ -27,3 +27,6 @@ body {
     background-image: url(./Background.JPG);
     font-family: 'Montserrat', sans-serif;
 }
+#root{
+    height: 100vh;
+}
