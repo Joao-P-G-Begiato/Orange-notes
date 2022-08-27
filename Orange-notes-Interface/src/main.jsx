@@ -6,13 +6,7 @@ import { Login } from './pages/Login.jsx'
 import { Home } from './pages/Home.jsx'
 import {Footer} from './components/Footer/Footer.jsx'
 import './reset.css'
-import {useState , useEffect} from 'react'
 
-const [userLogged, setUserLogged] = useState('')
-
-useEffect(()=>{
-  
-}, [])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
