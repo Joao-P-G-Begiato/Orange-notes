@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Requisicao } from "../services/Requisicao"
 import { Header } from '../components/Header/Header'
 import { Button } from "../components/Button/Button"
+import { Forms } from "../components/Forms/Forms"
 import {CardContainer} from '../components/CardContainer/CardContainer'
 import './styles/Home.css'
 
@@ -10,7 +11,13 @@ export function Home(){
     const [container, setContainer] = useState("themeContainer")
     const [data, setData] = useState(example.temas)
     const [formsInfo, setFormsInfo] = useState("")
+    const [form, setForm] = useState("hidden")
+    const [title, setTitle] = useState("")
+    const [descricao, setDescricao] = useState("")
 
+    useEffect(()=>{
+        setContainer("hidden")
+    },[form])
 
 // useEffect(()=>{
 //     Requisicao("https://randomuser.me/api/")
@@ -25,13 +32,49 @@ export function Home(){
         <main className="homeMain">
             <h1 className="h1Home">Seja bem vindo / vinda / vinde {example.nome}. </h1>
             <p className="pHome">Selecione um de seus temas <Button label="+" className="add" callback={()=>{
-                data.push(formsInfo)
-                console.log(data)
+                setForm("")
             }}/></p>
             <CardContainer sClassName="hidden" containerName={container} changeContainer={()=>{
                 setContainer()
             }} changeData={setData} data={example} dados={data} label="entrar"/>
-
+            <Forms 
+            className={form} 
+            input={["titulo", "descrição"]} 
+            type={["text", "texte"]} 
+            callback={[setTitle, setDescricao]} 
+            path="/home"
+            onClick={(e)=>{
+                e.preventDefault()
+                setForm("hidden")
+                if(data[0].status == undefined){
+                    const infos = {
+                            titulo:title,
+                            descricao:descricao,
+                            tarefas:[            {
+                                titulo:"Titulo da Tarefa",
+                                descricao: "Descrição da Tarefa",
+                                status:"A Fazer"
+                            }]
+                        }
+                        example.temas.push(infos)
+                        setData(example.temas[0].tarefas)
+                            console.log(2)
+                        setTimeout(()=>{setData(example.temas)
+                            console.log(3)}, 1)
+                        console.log(data)
+                }else{
+                    const oldData = data
+                    console.log(data)
+                    const infos = {
+                            titulo:title,
+                            descricao:descricao,
+                            status:"A Fazer"
+                        }
+                        data.push(infos)
+                        setData(data)
+                }
+            }}
+            />
         </main>
         </>
     )
