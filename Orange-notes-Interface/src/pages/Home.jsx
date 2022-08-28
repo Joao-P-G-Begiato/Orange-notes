@@ -34,47 +34,55 @@ export function Home(){
             <p className="pHome">Selecione um de seus temas <Button label="+" className="add" callback={()=>{
                 setForm("")
             }}/></p>
-            <CardContainer sClassName="hidden" containerName={container} changeContainer={()=>{
-                setContainer()
-            }} changeData={setData} data={example} dados={data} label="entrar"/>
-            <Forms 
-            className={form} 
-            input={["titulo", "descrição"]} 
-            type={["text", "texte"]} 
-            callback={[setTitle, setDescricao]} 
-            path="/home"
-            onClick={(e)=>{
-                e.preventDefault()
-                setForm("hidden")
-                if(data[0].status == undefined){
-                    const infos = {
-                            titulo:title,
-                            descricao:descricao,
-                            tarefas:[            {
-                                titulo:"Titulo da Tarefa",
-                                descricao: "Descrição da Tarefa",
-                                status:"A Fazer"
-                            }]
-                        }
-                        example.temas.push(infos)
-                        setData(example.temas[0].tarefas)
-                            console.log(2)
-                        setTimeout(()=>{setData(example.temas)
-                            console.log(3)}, 1)
+
+            <Forms className={form} 
+                input={["titulo", "descrição"]} 
+                type={["text", "texte"]} 
+                callback={[setTitle, setDescricao]}
+                onClick={(e)=>{
+                    e.preventDefault()
+                    setForm("hidden")
+                    if(data[0].status == undefined){
+                        const infos = {
+                                titulo:title,
+                                descricao:descricao,
+                                tarefas:[            {
+                                    titulo:"Titulo da Tarefa",
+                                    descricao: "Descrição da Tarefa",
+                                    status:"A Fazer"
+                                }]
+                            }
+                            example.temas.push(infos)
+                            setData(example.temas[0].tarefas)
+                                console.log(2)
+                            setTimeout(()=>{setData(example.temas)
+                                console.log(3)}, 1)
+                            console.log(data)
+                    }else{
+                        const oldData = data
                         console.log(data)
-                }else{
-                    const oldData = data
-                    console.log(data)
-                    const infos = {
-                            titulo:title,
-                            descricao:descricao,
-                            status:"A Fazer"
-                        }
-                        data.push(infos)
-                        setData(data)
-                }
-            }}
+                        const infos = {
+                                titulo:title,
+                                descricao:descricao,
+                                status:"A Fazer"
+                            }
+                            data.push(infos)
+                            setData(data)
+                }}}
+                path="/home"
+                />
+
+            <CardContainer sClassName="hidden" 
+                containerName={container} 
+                changeContainer={()=>{
+                    setContainer()
+                }} 
+                changeData={setData} 
+                data={example} 
+                dados={data} 
+                label="entrar"
             />
+
         </main>
         </>
     )

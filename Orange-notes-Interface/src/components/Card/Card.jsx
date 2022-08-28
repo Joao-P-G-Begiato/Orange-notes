@@ -33,11 +33,16 @@ export function Card(props){
             <p className="itemTitle"><b>{props.title}</b></p>
             <p className="itemDescr">{props.descr}</p>
             <p className={classNameS}> <b>Status:</b> {props.status}</p>
-            <Button className={classNameB} label={props.label} callback={()=>{
-                props.callback("taskContainer")
-                props.backButton()
-                props.changeData(props.data.temas[props.i].tarefas)
-            }}/>
+            <div>
+                <Button className={classNameB} label={props.label} callback={()=>{
+                    props.callback("taskContainer")
+                    props.backButton()
+                    props.changeData(props.data.temas[props.i].tarefas)
+                }}/>
+                <Button className="update" label="atualizar" onClick={()=>{
+                    
+                }} />
+            </div>
         </div>
         
     )
