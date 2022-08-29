@@ -57,7 +57,6 @@ export function Home(){
                             setTimeout(()=>{setData(example.temas)
                                 }, 1)
                     }else{
-                        console.log(data)
                         const infos = {
                                 titulo:title,
                                 descricao:descricao,

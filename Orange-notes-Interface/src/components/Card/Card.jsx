@@ -7,7 +7,6 @@ export function Card(props){
     const [column ,setColumn] =useState('Backlog')
     const[classNameS , setClassNameS] = useState("hidden")
     const[classNameB , setClassNameB] = useState("")
-    const[dados , setDados] = useState(props.origin)
     const [form, setForm] = useState("hidden")
     const [title, setTitle] = useState(props.titulo)
     const [descr, setDescr] = useState(props.descr)
@@ -36,15 +35,20 @@ export function Card(props){
         }
     },[props.status])
 
+
     return (
         <div className= {`card ${column}`} >
-            <p className="itemTitle"><b>{props.title}</b></p>
+            <p className="itemTitle"><b>{props.title}</b> <Button className="add" label="-" callback={(e)=>{
+                e.preventDefault()
+                props.delete()
+            }} /></p>
             <p className="itemDescr">{props.descr}</p>
             <p className={classNameS}> <b>Status:</b> {props.status}</p>
             <div>
                 <Button className={classNameB} label={props.label} callback={()=>{
                     props.callback("taskContainer")
                     props.backButton()
+                    props.tema(props.i)
                     props.changeData(props.data.temas[props.i].tarefas)
                 }}/>
                 <Button className="update" label="atualizar" callback={(e)=>{
@@ -65,7 +69,6 @@ export function Card(props){
                 <div>
                     <Button className="update" label="salvar" callback={(e)=>{
                         e.preventDefault()
-                        console.log(dados)
                         if(props.origin.status == undefined){
                             props.data.temas[props.i].titulo = title
                             props.data.temas[props.i].descricao = descr
