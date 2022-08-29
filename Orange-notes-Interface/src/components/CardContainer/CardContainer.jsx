@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 export function CardContainer(props){
     const [classNameBack, setClassNameBack] = useState("hidden")
     const [sec, setSec] = useState(props.containerName)
+    
     useEffect(()=>{
         if(props.data == props.data.temas){
             setSec("themeContainer")
@@ -28,6 +29,7 @@ export function CardContainer(props){
                 backButton={()=>setClassNameBack("")}
                 backButton2={()=>setClassNameBack("hidden")}
                 sec = {sec}
+                origin = {element}
                 />
                 
             )

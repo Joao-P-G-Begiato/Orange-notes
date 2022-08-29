@@ -54,12 +54,9 @@ export function Home(){
                             }
                             example.temas.push(infos)
                             setData(example.temas[0].tarefas)
-                                console.log(2)
                             setTimeout(()=>{setData(example.temas)
-                                console.log(3)}, 1)
-                            console.log(data)
+                                }, 1)
                     }else{
-                        const oldData = data
                         console.log(data)
                         const infos = {
                                 titulo:title,
