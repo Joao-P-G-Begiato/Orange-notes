@@ -1,6 +1,6 @@
 import DAO from "./DAO.js"
 
-class DataaseUserMethod extends DAO{
+export default class DataaseUserMethod extends DAO{
     static async createTableUser(){
         const query = `
         CREATE TABLE IF NOT EXISTS User(
@@ -37,5 +37,18 @@ class DataaseUserMethod extends DAO{
         const query = `DELETE FROM User WHERE id=?`
         const response = await this.deleteById(id, query)
         return response
+    }
+
+    static async updateUserById(id, user){
+        const query = `UPDATE User
+            SET
+            nome = ?,
+            login = ?,
+            tolken = ?,
+            temas = ?
+            WHERE id = ?`
+
+            const response = await this.updateById(user, id, query)
+            return response
     }
 }
