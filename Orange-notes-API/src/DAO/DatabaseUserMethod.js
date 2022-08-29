@@ -33,6 +33,12 @@ export default class DatabaseUserMethod extends DAO{
         return response
     }
 
+    static async listUserById(id){
+        const query = `SELECT * FROM User WHERE id = ?`
+        const response = await this.listBy(id, query)
+        return response
+    }
+
     static async deleteUserById(id){
         const query = `DELETE FROM User WHERE id=?`
         const response = await this.deleteById(id, query)
