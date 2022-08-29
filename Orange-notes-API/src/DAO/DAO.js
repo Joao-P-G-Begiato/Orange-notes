@@ -41,6 +41,17 @@ class DAO{
         })
     }
 
-    
+    static listAll(query){
+        return new Promise((resolve, reject)=>{
+            Database.all(query, (e,result)=>{
+                if(e){
+                    reject(e)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    }
 
+    
 }
