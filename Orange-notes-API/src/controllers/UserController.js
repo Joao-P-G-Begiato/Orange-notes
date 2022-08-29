@@ -42,14 +42,21 @@ export default class User{
             }
         })
 
-    //     app.put("/user/:id",async (req, res)=>{
-    //         const user = new UserModel(...Object.values(req.body))
-    //         const isValid = ValidateService.validateTheme(user.temas)
-    //         try{
-
-    //         }catch(e){
-    //             res.status(400).json(e.message)
-    //         }
-    //     })
-    // }
+        app.put("/user/:id",async (req, res)=>{
+            const user = new UserModel(...Object.values(req.body))
+            const isValid = ValidateService.validateTheme(user.temas)
+            try{
+                const userRegistered = await DatabaseUserMethod.listUserById(req.params.id)
+                if(!userRegistered){
+                    throw new Error(`Usuário não cadastrado, confira o id passado ou então tente utilizar o método post.`)
+                }
+                if(isValid){
+                    const response = await DatabaseUserMethod.updateUserById(req.params.id, user)
+                    res.status(200).json(response)
+                }
+            }catch(e){
+                res.status(400).json(e.message)
+            }
+        })
+    }
 }
