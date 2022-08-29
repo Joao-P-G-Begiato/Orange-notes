@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     height: auto;
-    margin: 80px 0 0 0;
+    margin: 55px 0 0 0;
     gap: 2px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,5 +12,5 @@
 }
 
 .second{
-    margin: 30px 0 0 0;
+    margin: 30px 0 30px 0;
 }

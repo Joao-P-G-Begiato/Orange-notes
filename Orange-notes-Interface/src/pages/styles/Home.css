@@ -1,0 +1,86 @@
+.homeMain{
+    margin-top: 83px;
+    background-color: rgba(32,32,32, 0.98);
+    min-height: calc(100% - 203px);
+}
+
+.h1Home{
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 38px;
+}
+
+.pHome{
+    padding-top: 10px;
+    padding-left: 20px;
+    word-wrap: break-word;
+}
+
+.themeContainer{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    gap:5%;
+}
+
+.card{
+    color: #FF5a23;
+    border-radius: 10px;
+    border:1px solid #FF5a23 ;
+    background-color: rgb(32,32,32);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.taskContainer{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+p.itemDescr{
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    text-align: center;
+    color:#e9973A
+}
+
+div.Backlog,div.Done,div.Doing{
+    width: 30vw;
+    font-size: 14px;
+}
+
+.Backlog{
+    color:lightblue
+}
+
+.Doing{
+    color: yellow;
+}
+div.Doing{
+    margin-left: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Done{
+    color: chartreuse
+}
+div.Done{
+    margin-left: 60vw;
+}
+
+.add{
+    width: 25px;
+    height: 25px;
+    border-radius: 80%;
+    border: 0px;
+}
+
+.cardForm{
+    width: 100%
+}
