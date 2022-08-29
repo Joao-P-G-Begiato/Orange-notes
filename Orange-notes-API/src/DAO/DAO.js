@@ -26,5 +26,21 @@ class DAO{
             })
         })
     }
+
+    static insert(entidade, query){
+        const corpo = Object.values(entidade)
+
+        return new Promise((resolve, reject)=>{
+            Database.run(query, [...corpo], (e)=>{
+                if(e){
+                    reject(e.message)
+                }else{
+                    resolve({message:"Cadastro realizado com sucesso", error: false})
+                }
+            })
+        })
+    }
+
     
+
 }
