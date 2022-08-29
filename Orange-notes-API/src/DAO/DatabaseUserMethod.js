@@ -24,6 +24,12 @@ class DataaseUserMethod extends DAO{
     static async listAllUser(){
         const query = `SELECT * FROM User`
         const response = await this.listAll(query)
+        return response
     }
-    
+
+    static async listUserByLogin(login){
+        const query = `SELECT * FROM User WHERE Login = ?`
+        const response = await this.listBy(login, query)
+        return response
+    }
 }
