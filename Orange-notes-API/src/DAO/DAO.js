@@ -1,6 +1,6 @@
 import Database from "../infra/database.js";
 
-class DAO{
+export default class DAO{
     static async activePragma(){
         const query = "PRAGMA fore_keys = ON";
 
@@ -16,12 +16,12 @@ class DAO{
     static createTable(query){
         this.activePragma()
 
-        return new Promise((resolve, rejecta) =>{
+        return new Promise((resolve, reject) =>{
             Database.run(query, (e)=>{
                 if(e){
-                    console.log(e)
+                    reject(e)
                 }else{
-                    console.log("Tabela criada com sucesso")
+                    resolve("Tabela criada com sucesso")
                 }
             })
         })
@@ -67,7 +67,7 @@ class DAO{
 
     static deleteById(id, query){
         return new Promise((resolve, reject) =>{
-            Database.get(query, id, (e)=>{
+            Database.run(query, id, (e)=>{
                 if(e){
                     reject(e)
                 }else{
@@ -75,6 +75,19 @@ class DAO{
                         result : `Registro com a identificação: ${id}, deletado com sucesso`,
                         error: "Nenhum erro encontrado durante a operação."
                     })
+                }
+            })
+        })
+    }
+
+    static updateById(entidade, id, query){
+        const corpo = Object.values(entidade)
+        return new Promise((resolve, reject)=>{
+            Database.run(query, [...corpo], (e)=>{
+                if(e){
+                    reject(e.message)
+                }else{
+                    resolve({result: `Registro com a identificação ${id} atualizado com sucesso.` })
                 }
             })
         })
