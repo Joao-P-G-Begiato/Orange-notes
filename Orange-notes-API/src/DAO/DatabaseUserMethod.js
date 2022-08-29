@@ -32,4 +32,10 @@ class DataaseUserMethod extends DAO{
         const response = await this.listBy(login, query)
         return response
     }
+
+    static async deleteUserById(id){
+        const query = `DELETE FROM User WHERE id=?`
+        const response = await this.deleteById(id, query)
+        return response
+    }
 }
