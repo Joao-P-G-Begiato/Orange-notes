@@ -10,7 +10,6 @@ export function Home(){
     // const [userLogged, setUserLogged] = useState({})
     const [container, setContainer] = useState("themeContainer")
     const [data, setData] = useState(example.temas)
-    const [formsInfo, setFormsInfo] = useState("")
     const [form, setForm] = useState("hidden")
     const [title, setTitle] = useState("")
     const [descricao, setDescricao] = useState("")
