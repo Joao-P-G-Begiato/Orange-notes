@@ -53,5 +53,15 @@ class DAO{
         })
     }
 
-    
+    static listBy(param, query){
+        return new Promise((resolve, reject) =>{
+            Database.get(query, param, (e, result)=>{
+                if(e){
+                    reject(e)
+                }else{
+                    return resolve(result)
+                }
+            })
+        })
+    }
 }
