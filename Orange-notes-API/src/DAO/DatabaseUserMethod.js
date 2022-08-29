@@ -20,4 +20,10 @@ class DataaseUserMethod extends DAO{
         const response = await this.insert(user, query)
         return response
     }
+
+    static async listAllUser(){
+        const query = `SELECT * FROM User`
+        const response = await this.listAll(query)
+    }
+    
 }
