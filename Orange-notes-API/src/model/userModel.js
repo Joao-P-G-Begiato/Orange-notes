@@ -1,4 +1,4 @@
-export default class modeloUsuario{
+export default class UserModel{
     constructor(nome, login, tolken){
         nome = this.nome
         login =  this.login

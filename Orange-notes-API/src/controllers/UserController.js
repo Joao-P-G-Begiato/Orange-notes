@@ -1,10 +1,10 @@
-import modeloUsuario from "../model/userModel.js";
+import UserModel from "../model/userModel.js";
 import DatabaseUserMethod from "../DAO/DatabaseUserMethod.js";
 import ValidateService from "../services/service.js";
 
 DatabaseUserMethod.createTableUser();
 
-class User{
+export default class User{
     static route(app){
         app.get("/user", async(req, res)=>{
             const response = await DatabaseUserMethod.listAllUser();
@@ -22,5 +22,34 @@ class User{
                 res.status(404).json(error.message)
             }
         })
-    }
+        
+        app.post("/user", async(req, res)=>{
+            const user = new UserModel(...Object.values(req.body))
+            const isValid = ValidateService.validateTheme(user.temas) 
+            try{
+                if(isValid){
+                    const userRegistered = await DatabaseUserMethod.listUserByLogin(user.login)
+                    if(userRegistered){
+                        throw new Error("Usuário já cadastrado.")
+                    }
+                    const response = await DatabaseUserMethod.insertUser(user)
+                    res.status(201).json(response)
+                }else{
+                    throw new Error("Requisição incorreta revise o corpo da mesma.")
+                }
+            }catch(e){
+                res.status(400).json(e.message)
+            }
+        })
+
+    //     app.put("/user/:id",async (req, res)=>{
+    //         const user = new UserModel(...Object.values(req.body))
+    //         const isValid = ValidateService.validateTheme(user.temas)
+    //         try{
+
+    //         }catch(e){
+    //             res.status(400).json(e.message)
+    //         }
+    //     })
+    // }
 }
