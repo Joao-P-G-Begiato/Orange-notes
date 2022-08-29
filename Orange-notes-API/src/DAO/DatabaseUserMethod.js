@@ -14,4 +14,10 @@ class DataaseUserMethod extends DAO{
         const response = await this.createTable(query)
         return response
     }
+
+    static async insertUser(user){
+        const query = `INSERT INTO User (nome, login, tolken, temas) VALUES (?,?,?,?)`;
+        const response = await this.insert(user, query)
+        return response
+    }
 }
