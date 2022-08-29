@@ -64,4 +64,19 @@ class DAO{
             })
         })
     }
+
+    static deleteById(id, query){
+        return new Promise((resolve, reject) =>{
+            Database.get(query, id, (e)=>{
+                if(e){
+                    reject(e)
+                }else{
+                    resolve({
+                        result : `Registro com a identificação: ${id}, deletado com sucesso`,
+                        error: "Nenhum erro encontrado durante a operação."
+                    })
+                }
+            })
+        })
+    }
 }
