@@ -11,9 +11,10 @@ export default class User{
             res.status(200).json(response)
         })
 
-        app.get("/user:login", async(req, res)=>{
+        app.get("/user/:login", async(req, res)=>{
             try{
                 const user = await DatabaseUserMethod.listUserByLogin(req.params.login)
+                user.temas = JSON.parse(user.temas)
                 if(!user){
                     throw new Error("Usuário não cadastrado.")
                 }
@@ -24,8 +25,10 @@ export default class User{
         })
 
         app.post("/user", async(req, res)=>{
-            const user = new UserModel(...Object.values(req.body))
-            const isValid = ValidateService.validateTheme(user.temas) 
+            const {nome, login, tolken, temas} = req.body
+            const info = JSON.stringify(temas)
+            const user = new UserModel(nome, login, tolken, info)
+            const isValid = true
             try{
                 if(isValid){
                     const userRegistered = await DatabaseUserMethod.listUserByLogin(user.login)
@@ -43,8 +46,10 @@ export default class User{
         })
 
         app.put("/user/:id",async (req, res)=>{
-            const user = new UserModel(...Object.values(req.body))
-            const isValid = ValidateService.validateTheme(user.temas)
+            const {nome, login, tolken, temas} = req.body
+            const info = JSON.stringify(temas)
+            const user = new UserModel(nome, login, tolken, info)
+            const isValid = true
             try{
                 const userRegistered = await DatabaseUserMethod.listUserById(req.params.id)
                 if(!userRegistered){
@@ -68,7 +73,7 @@ export default class User{
                     throw new Error("O Usuário que vocês está tentando excluir não existe, confira o id e tente novamente")
                 }
                 const response = await DatabaseUserMethod.deleteUserById(req.params.id)
-                req.status(200).json(response)
+                res.status(200).json(response)
             }catch(e){
                 res.status(404).json(e.message)
             }
