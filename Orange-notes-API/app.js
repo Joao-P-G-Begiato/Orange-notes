@@ -1,5 +1,6 @@
 import express from "express";
 import * as dotenv from "dotenv";
+import User from "./src/controllers/UserController.js"
 
 
 dotenv.config()
@@ -14,3 +15,7 @@ app.listen(port, ()=>{
         console.log(port)
     }
 })
+
+app.use(express.json())
+
+User.route(app)
