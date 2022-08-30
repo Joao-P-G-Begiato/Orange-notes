@@ -22,7 +22,7 @@ export default class User{
                 res.status(404).json(error.message)
             }
         })
-        
+
         app.post("/user", async(req, res)=>{
             const user = new UserModel(...Object.values(req.body))
             const isValid = ValidateService.validateTheme(user.temas) 
@@ -53,9 +53,24 @@ export default class User{
                 if(isValid){
                     const response = await DatabaseUserMethod.updateUserById(req.params.id, user)
                     res.status(200).json(response)
+                }else{
+                    throw new Error("Houve algum erro na Requisição, revise o corpo da mesma.")
                 }
             }catch(e){
                 res.status(400).json(e.message)
+            }
+        })
+
+        app.delete("/user/:id", async(req, res)=>{
+            try{
+                const userRegistered = await DatabaseUserMethod.listUserById(req.params.id)
+                if(!userRegistered){
+                    throw new Error("O Usuário que vocês está tentando excluir não existe, confira o id e tente novamente")
+                }
+                const response = await DatabaseUserMethod.deleteUserById(req.params.id)
+                req.status(200).json(response)
+            }catch(e){
+                res.status(404).json(e.message)
             }
         })
     }
