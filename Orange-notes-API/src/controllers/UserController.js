@@ -1,6 +1,6 @@
 import UserModel from "../model/userModel.js";
 import DatabaseUserMethod from "../DAO/DatabaseUserMethod.js";
-import ValidateService from "../services/service.js";
+import ValidateUser from "../services/ValidateUser.js";
 
 DatabaseUserMethod.createTableUser();
 
@@ -28,7 +28,8 @@ export default class User{
             const {nome, login, tolken, temas} = req.body
             const info = JSON.stringify(temas)
             const user = new UserModel(nome, login, tolken, info)
-            const isValid = true
+            const isValid =  ValidateUser.isValid(nome, login, tolken, temas, Object.keys(req.body))
+            
             try{
                 if(isValid){
                     const userRegistered = await DatabaseUserMethod.listUserByLogin(user.login)
@@ -49,7 +50,7 @@ export default class User{
             const {nome, login, tolken, temas} = req.body
             const info = JSON.stringify(temas)
             const user = new UserModel(nome, login, tolken, info)
-            const isValid = true
+            const isValid =  ValidateUser.isValid(nome, login, tolken, temas, Object.keys(req.body))
             try{
                 const userRegistered = await DatabaseUserMethod.listUserById(req.params.id)
                 if(!userRegistered){
