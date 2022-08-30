@@ -29,7 +29,6 @@ export default class DAO{
 
     static insert(entidade, query){
         const corpo = Object.values(entidade)
-
         return new Promise((resolve, reject)=>{
             Database.run(query, [...corpo], (e)=>{
                 if(e){
@@ -83,7 +82,7 @@ export default class DAO{
     static updateById(entidade, id, query){
         const corpo = Object.values(entidade)
         return new Promise((resolve, reject)=>{
-            Database.run(query, [...corpo], (e)=>{
+            Database.run(query, [...corpo, id], (e)=>{
                 if(e){
                     reject(e.message)
                 }else{

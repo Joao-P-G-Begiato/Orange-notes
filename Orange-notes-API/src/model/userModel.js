@@ -1,19 +1,8 @@
 export default class UserModel{
-    constructor(nome, login, tolken){
-        nome = this.nome
-        login =  this.login
-        tolken = this.tolken
-        temas =  [{
-            titulo : "Exemplo de Tema",
-            descricao : "Clique em atualizar para alterar esse tema",
-            tarefas : [
-                {
-                        titulo : "Exemplo de Tarefa",
-                        descricao : "Clique em atualizar para alterar esse tema",
-                        status : "A Fazer"
-                    }
-                ]
-            }
-        ]
+    constructor(nome, login, tolken, tema){
+        this.nome = nome
+        this.login =  login
+        this.tolken = tolken
+        this.tema =  tema    
     }
 }
