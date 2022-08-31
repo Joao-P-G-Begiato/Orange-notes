@@ -12,7 +12,7 @@ export function Forms(props){
                         return (
                             <div key={index} className="divInput">
                                 <Label htmlFor={element} label={element} />
-                                <Input type={props.type[index]} name={element} callback={props.valida[index]}/>
+                                <Input onBlur={props.onBlur[index]} type={props.type[index]} name={element} callback={props.valida[index]}/>
                             </div>
                         )})}
             <Link to={props.path}><Button label="Entrar" callback={props.onClick}/></Link>
