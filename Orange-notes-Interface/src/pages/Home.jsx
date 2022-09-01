@@ -1,84 +1,92 @@
-import { useEffect, useState } from "react"
-import { Requisicao } from "../services/Requisicao"
+import { useContext, useEffect, useState } from "react"
+import { requisicao } from "../services/Requisicao"
 import { Header } from '../components/Header/Header'
 import { Button } from "../components/Button/Button"
 import { Forms } from "../components/Forms/Forms"
 import {CardContainer} from '../components/CardContainer/CardContainer'
 import './styles/Home.css'
+import { Context } from "../context/context"
 
 export function Home(){
-    // const [userLogged, setUserLogged] = useState({})
+    const [userLogged, setUserLogged] = useState("")
     const [container, setContainer] = useState("themeContainer")
     const [data, setData] = useState(example.temas)
     const [form, setForm] = useState("hidden")
     const [title, setTitle] = useState("")
     const [descricao, setDescricao] = useState("")
+    const [loading, setLoading] = useState("homeMain")
+    const [main, setMain] = useState("hidden")
 
     useEffect(()=>{
         setContainer("hidden")
     },[form])
 
-// useEffect(()=>{
-//     Requisicao("https://randomuser.me/api/")
-//     .then(response =>{
-//         setUserLogged(response.results)
-//     })
-// }, [])
+useEffect(()=>{
+    requisicao()
+    .then(response =>{
+        console.log(response)
+        setUserLogged(response)
+        setMain("homeMain")
+        setLoading("hidden")
+        setData(response.temas)
+    })
+
+}, [])
 
     return(
         <>
-        <Header label="Logout" path="/" home="/home" />
-        <main className="homeMain">
-            <h1 className="h1Home">Seja bem vindo / vinda / vinde {example.nome}. </h1>
-            <p className="pHome">Selecione um de seus temas <Button label="+" className="add" callback={()=>{
-                setForm("")
-            }}/></p>
+            <Header label="Logout" path="/" home="/home" />
+            <div className={loading}>carregando....</div>
+            <main className={main}>
+                <h1 className="h1Home">Seja bem vindo / vinda / vinde {userLogged.nome}. </h1>
+                <p className="pHome">Selecione um de seus temas <Button label="+" className="add" callback={()=>{
+                    setForm("")
+                }}/></p>
 
-            <Forms className={form} 
-                input={["titulo", "descrição"]} 
-                type={["text", "texte"]} 
-                callback={[setTitle, setDescricao]}
-                onClick={(e)=>{
-                    e.preventDefault()
-                    setForm("hidden")
-                    if(data[0].status == undefined){
-                        const infos = {
-                                titulo:title,
-                                descricao:descricao,
-                                tarefas:[            {
-                                    titulo:"Titulo da Tarefa",
-                                    descricao: "Descrição da Tarefa",
+                <Forms className={form} 
+                    input={["titulo", "descrição"]} 
+                    type={["text", "texte"]} 
+                    callback={[setTitle, setDescricao]}
+                    onClick={()=>{
+                        setForm("hidden")
+                        if(data[0].status == undefined){
+                            const infos = {
+                                    titulo:title,
+                                    descricao:descricao,
+                                    tarefas:[            {
+                                        titulo:"Titulo da Tarefa",
+                                        descricao: "Descrição da Tarefa",
+                                        status:"A Fazer"
+                                    }]
+                                }
+                                userLogged.temas.push(infos)
+                                setData(userLogged.temas[0].tarefas)
+                                setTimeout(()=>{setData(userLogged.temas)
+                                    }, 1)
+                        }else{
+                            const infos = {
+                                    titulo:title,
+                                    descricao:descricao,
                                     status:"A Fazer"
-                                }]
-                            }
-                            example.temas.push(infos)
-                            setData(example.temas[0].tarefas)
-                            setTimeout(()=>{setData(example.temas)
-                                }, 1)
-                    }else{
-                        const infos = {
-                                titulo:title,
-                                descricao:descricao,
-                                status:"A Fazer"
-                            }
-                            data.push(infos)
-                            setData(data)
-                }}}
-                path="/home"
+                                }
+                                data.push(infos)
+                                setData(data)
+                    }}}
+                    path="/home"
+                    />
+
+                <CardContainer sClassName="hidden" 
+                    containerName={container} 
+                    changeContainer={()=>{
+                        setContainer()
+                    }} 
+                    changeData={setData} 
+                    data={userLogged} 
+                    dados={data} 
+                    label="entrar"
                 />
+            </main>
 
-            <CardContainer sClassName="hidden" 
-                containerName={container} 
-                changeContainer={()=>{
-                    setContainer()
-                }} 
-                changeData={setData} 
-                data={example} 
-                dados={data} 
-                label="entrar"
-            />
-
-        </main>
         </>
     )
 }

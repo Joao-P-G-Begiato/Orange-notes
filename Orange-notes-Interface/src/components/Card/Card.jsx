@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { atualizaRequisicao } from "../../services/Requisicao.js"
 import { Button } from "../Button/Button.jsx"
 import { Input } from "../Input/Input.jsx"
 import {InputList} from '../Input/InputList'
@@ -38,9 +39,9 @@ export function Card(props){
 
     return (
         <div className= {`card ${column}`} >
-            <p className="itemTitle"><b>{props.title}</b> <Button className="add" label="-" callback={(e)=>{
-                e.preventDefault()
+            <p className="itemTitle"><b>{props.title}</b> <Button className="add" label="-" callback={()=>{
                 props.delete()
+                atualizaRequisicao(props.data)
             }} /></p>
             <p className="itemDescr">{props.descr}</p>
             <p className={classNameS}> <b>Status:</b> {props.status}</p>
@@ -51,8 +52,7 @@ export function Card(props){
                     props.tema(props.i)
                     props.changeData(props.data.temas[props.i].tarefas)
                 }}/>
-                <Button className="update" label="atualizar" callback={(e)=>{
-                    e.preventDefault()
+                <Button className="update" label="atualizar" callback={()=>{
                     setForm("cardForm")
                 }} />
             </div>
@@ -67,8 +67,7 @@ export function Card(props){
                 </span>
                 <span className={alert}>Algo de errado com as informações passadas, por favor revisar e tentar atualizar novamente</span>
                 <div>
-                    <Button className="update" label="salvar" callback={(e)=>{
-                        e.preventDefault()
+                    <Button className="update" label="salvar" callback={()=>{
                         if(props.origin.status == undefined){
                             props.data.temas[props.i].titulo = title
                             props.data.temas[props.i].descricao = descr
@@ -95,8 +94,8 @@ export function Card(props){
                             }
                         }
                     }} />
-                    <Button className="update" label="cancelar" callback={(w)=>{
-                        w.preventDefault()
+                    <Button className="update" label="cancelar" callback={()=>{
+                        
                         setForm("hidden")
                     }
                     } />

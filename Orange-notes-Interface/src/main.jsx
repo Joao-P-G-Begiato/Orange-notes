@@ -6,17 +6,20 @@ import { Login } from './pages/Login.jsx'
 import { Home } from './pages/Home.jsx'
 import {Footer} from './components/Footer/Footer.jsx'
 import './reset.css'
+import { Provider } from './context/Provider.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element = {<Landpage/>} />
-        <Route path='/login' element = {<Login />} />
-        <Route path='/home' element = {<Home />} />
-      </Routes>
-    <Footer />
-    </BrowserRouter>
-  </React.StrictMode>
+  <Provider>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element = {<Landpage/>} />
+          <Route path='/login' element = {<Login />} />
+          <Route path='/home' element = {<Home />} />
+        </Routes>
+      <Footer />
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>
 )

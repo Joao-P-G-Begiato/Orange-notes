@@ -38,12 +38,14 @@ export function CardContainer(props){
                         }else{
                                 props.dados.splice(props.dados.indexOf(element), 1)
                                 if(element.status == undefined){
+                                    setSec("themeContainer")
                                     props.changeData(props.data.temas[0].tarefas)
                                     setTimeout(()=>{props.changeData(props.data.temas)
                                     }, 1)
                                 }else{
+                                    
                                     props.changeData(props.data.temas)
-                                    setTimeout(()=>{props.changeData(props.data.temas[tema].tarefas); setClassNameBack("")},1)
+                                    setTimeout(()=>{props.changeData(props.data.temas[tema].tarefas); setClassNameBack(""); setSec("taskContainer")} ,1)
                                 }
                         }
                     }}
