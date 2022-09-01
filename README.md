@@ -2,7 +2,7 @@
 
 ## Projeto desenvolvido para o Hackaton 🔥 Esquenta Programa de Formação 🔥 da Orange Juice.
 
-[Sobre](#sobre-) - [Softwares & Ferramentas](#softwares--ferramentas-utilizadas-neste-projeto-) - [Deploy](#deploy-) - [Consumo da API](#consumo-da-API-) - [Licença](#licenca-) [Contato](#contato-)
+[Sobre](#sobre-) - [Softwares & Ferramentas](#softwares--ferramentas-utilizadas-neste-projeto-) - [Deploy](#deploy-) - [Consumo da API](#consumo-da-API-) - [Licença](#licenca-) - [Contato](#contato-)
 
 ## Sobre 🔎    
 
@@ -206,7 +206,9 @@ snap install insomnia
 
 ## Consumo da API 🤖
 
-Para realizar o cosumir a API você poderá utilizar os métodos GET, PUT, POST e DELETE conforme descritos abaixo, para realizar todas as funções do CRUD(criar, ler, atualizar e deletar) você tem que utilizar o método especifico:
+Para realizar o cosumir a API você poderá utilizar os métodos GET, PUT, POST e DELETE conforme descritos abaixo, para realizar todas as funções do CRUD(criar, ler, atualizar e deletar) você tem que utilizar o método especifico
+
+exemplos desses métodos podem ser encontrados na coleção Orange Notes do [Postman](https://go.postman.co/workspace/Team-Workspace~b777d508-7a3d-4af9-80bd-c3ece9efe434/collection/23130357-7acc5718-3e26-47f1-ba67-6817406e0a40?action=share&creator=23130357)
 
 ### Método Get (Ler):
 
@@ -265,6 +267,8 @@ Ele irá deletar o resgitro escolhido através do id único passado na rota.
 
 }
 ```
+---
+
 ## Contato 
 
 Projeto desenvolvido por mim, João Paulo Gotardi Begiato e para me contatar pode-se utilizar os seguintes meios:
@@ -276,7 +280,7 @@ Projeto desenvolvido por mim, João Paulo Gotardi Begiato e para me contatar pod
 
 ---
 
-## 📄 Licença
+## Licença 📄
 
 Este projeto está sob a licença MIT - veja o arquivo [LICENSE](https://github.com/Joao-P-G-Begiato/Orange-notes/blob/main/LICENSE) para detalhes.
 
