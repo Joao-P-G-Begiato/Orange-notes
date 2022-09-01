@@ -2,7 +2,7 @@
 
 ## Projeto desenvolvido para o Hackaton 🔥 Esquenta Programa de Formação 🔥 da Orange Juice.
 
-[Sobre](#sobre-) - [Softwares & Ferramentas](#softwares--ferramentas-utilizadas-neste-projeto-) - [Deploy](#deploy-) - [Consumo da API](#consumo-da-API-)
+[Sobre](#sobre-) - [Softwares & Ferramentas](#softwares--ferramentas-utilizadas-neste-projeto-) - [Deploy](#deploy-) - [Consumo da API](#consumo-da-API-) - [Licença](#licenca-) [Contato](#contato-)
 
 ## Sobre 🔎    
 
@@ -278,7 +278,7 @@ Projeto desenvolvido por mim, João Paulo Gotardi Begiato e para me contatar pod
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT - veja o arquivo [LICENSE](https://github.com/Joao-P-G-Begiato/deburger/blob/main/LICENSE) para detalhes.
+Este projeto está sob a licença MIT - veja o arquivo [LICENSE](https://github.com/Joao-P-G-Begiato/Orange-notes/blob/main/LICENSE) para detalhes.
 
 ---
 
