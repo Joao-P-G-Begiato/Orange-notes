@@ -1,7 +1,6 @@
 import {Label} from '../Label/Label.jsx'
 import {Input} from '../Input/InputLogin.jsx'
 import {Button} from '../Button/Button'
-import {Link} from 'react-router-dom'
 import '../Forms/Forms.css'
 
 
@@ -12,10 +11,10 @@ export function Forms(props){
                         return (
                             <div key={index} className="divInput">
                                 <Label htmlFor={element} label={element} />
-                                <Input onBlur={props.onBlur[index]} type={props.type[index]} name={element} callback={props.valida[index]}/>
+                                <Input type={props.type[index]} onBlur={props.onBlur} name={element} callback={props.valida[index]}/>
                             </div>
                         )})}
-            <Link to={props.path}><Button label="Entrar" callback={props.onClick}/></Link>
+            <Button label="Entrar" callback={props.onClick}/>
         </form>
     )
 }
