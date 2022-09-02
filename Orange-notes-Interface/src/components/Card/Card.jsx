@@ -55,6 +55,8 @@ export function Card(props){
                             props.data[props.params].tarefas[props.i].status = status
                             setForm("hidden")
                             attRequisicao(activeUser)
+                            props.containerForm("")
+                            setTimeout(()=>props.containerForm('hidden'),1)
                             }else{
                                 setAlert("")
                             }
@@ -96,6 +98,8 @@ export function Card(props){
                                 props.data[props.i].descricao = descr
                                 setForm("hidden")
                                 attRequisicao(activeUser)
+                                props.containerForm("")
+                                setTimeout(()=>props.containerForm('hidden'),1)
                             }else{
                                 setAlert("")
                         }}} />

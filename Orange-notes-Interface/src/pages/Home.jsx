@@ -45,6 +45,8 @@ export function Home(){
                             }
                             activeUser.temas.push(infos)
                             attRequisicao(activeUser)
+                            setForm("")
+                            setForm("hidden")
                             }}
                         path="/home"
                     />
