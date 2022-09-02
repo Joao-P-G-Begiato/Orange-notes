@@ -1,55 +1,38 @@
-import { useContext, useEffect, useState } from "react"
-import { requisicao } from "../services/Requisicao"
+import { useContext, useState } from "react"
 import { Header } from '../components/Header/Header'
 import { Button } from "../components/Button/Button"
 import { Forms } from "../components/Forms/Forms"
 import {CardContainer} from '../components/CardContainer/CardContainer'
 import './styles/Home.css'
-import { Context } from "../context/context"
+import { Context } from "../context/Context"
+import { useNavigate } from "react-router-dom"
 
 export function Home(){
-    const [userLogged, setUserLogged] = useState("")
-    const [container, setContainer] = useState("themeContainer")
-    const [data, setData] = useState(example.temas)
     const [form, setForm] = useState("hidden")
     const [title, setTitle] = useState("")
     const [descricao, setDescricao] = useState("")
-    const [loading, setLoading] = useState("homeMain")
-    const [main, setMain] = useState("hidden")
-
-    useEffect(()=>{
-        setContainer("hidden")
-    },[form])
-
-useEffect(()=>{
-    requisicao()
-    .then(response =>{
-        console.log(response)
-        setUserLogged(response)
-        setMain("homeMain")
-        setLoading("hidden")
-        setData(response.temas)
-    })
-
-}, [])
+    const {activeUser, setActiveUser} = useContext(Context)
+    const navigate = useNavigate
 
     return(
         <>
             <Header label="Logout" path="/" home="/home" />
-            <div className={loading}>carregando....</div>
-            <main className={main}>
-                <h1 className="h1Home">Seja bem vindo / vinda / vinde {userLogged.nome}. </h1>
+            <main className="homeMain">
+                <h1 className="h1Home">Seja bem vindo / vinda / vinde {activeUser.nome}. </h1>
                 <p className="pHome">Selecione um de seus temas <Button label="+" className="add" callback={()=>{
-                    setForm("")
+                    setForm("divForm")
                 }}/></p>
 
-                <Forms className={form} 
-                    input={["titulo", "descrição"]} 
-                    type={["text", "texte"]} 
-                    callback={[setTitle, setDescricao]}
-                    onClick={()=>{
+                <div className={form}>
+                    <Button className="add cancel" label="x" callback={()=>{
                         setForm("hidden")
-                        if(data[0].status == undefined){
+                    }} />
+                    <Forms className={""} 
+                        input={["titulo", "descrição"]} 
+                        type={["text", "text"]} 
+                        callback={[setTitle, setDescricao]}
+                        onClick={()=>{
+                            setForm("hidden")
                             const infos = {
                                     titulo:title,
                                     descricao:descricao,
@@ -59,75 +42,20 @@ useEffect(()=>{
                                         status:"A Fazer"
                                     }]
                                 }
-                                userLogged.temas.push(infos)
-                                setData(userLogged.temas[0].tarefas)
-                                setTimeout(()=>{setData(userLogged.temas)
-                                    }, 1)
-                        }else{
-                            const infos = {
-                                    titulo:title,
-                                    descricao:descricao,
-                                    status:"A Fazer"
-                                }
-                                data.push(infos)
-                                setData(data)
-                    }}}
-                    path="/home"
+                                    activeUser.temas.push(infos)
+                                    }}
+                        path="/home"
                     />
-
-                <CardContainer sClassName="hidden" 
-                    containerName={container} 
-                    changeContainer={()=>{
-                        setContainer()
-                    }} 
-                    changeData={setData} 
-                    data={userLogged} 
-                    dados={data} 
-                    label="entrar"
+                </div>
+                <CardContainer 
+                    containerName="themeContainer" 
+                    changeData={navigate} 
+                    dados={activeUser.temas} 
+                    buttonName="hidden"
+                    isTask = {false}
+                    form={setForm}
                 />
             </main>
-
         </>
     )
-}
-
-
-
-const example = {
-    nome: "João Paulo",
-    email: "jpbegiato@hotmail.com",
-    tolken: "01010110",
-    temas: [{
-        titulo:"HTML-5",
-        descricao:"curso de hyper-text",
-        tarefas:[
-            {
-                titulo:"curso da Alura",
-                descricao: "curso HTML-5 intermediário",
-                status:"Fazendo"
-            },
-            {
-                titulo:"Documentação do Input",
-                descricao: "documentação que fala dos tipos de input W3 School: https://www.w3schools.com/html/html_form_input_types.asp ",
-                status:"Feito"
-            }
-        ]
-    },
-    {
-        titulo:"CSS-3",
-        descricao:"curso de estilização do hyper-text",
-        tarefas:[
-            {
-                titulo:"curso da Alura",
-                descricao: "curso de Bootstrap",
-                status:"Fazendo"
-            },
-            {
-                titulo:"Documentação de propriedades para Input",
-                descricao: "documentação que mostra diferentes estilos de input W3: school",
-                status:"Feito"
-            }
-        ]
-    }
-]
 }

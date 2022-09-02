@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Context } from "./context";
+import { Context } from "./Context";
 
 export const Provider = ({children}) => {
     const [activeUser, setActiveUser] = useState({})
