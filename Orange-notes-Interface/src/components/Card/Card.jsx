@@ -27,6 +27,7 @@ export function Card(props){
                     />
                 </p>
             <p className="itemDescr">{props.descr}</p>
+            <p className={props.status}>{props.status}</p>
             <div>
                 <Button className="update" label="atualizar" callback={()=>{
                     setForm("cardForm")
@@ -44,10 +45,11 @@ export function Card(props){
                 <span className={alert}>Algo de errado com as informações passadas, por favor revisar e tentar atualizar novamente</span>
                 <div>
                     <Button className="update" label="salvar" callback={()=>{
-                        props.data.tarefas[props.i].titulo = title
-                        props.data.tarefas[props.i].descricao = descr
-                        props.data.tarefas[props.i].status = status
                         if(title != undefined && (status == "A Fazer" ||status == "Fazendo" || status == "Feito" )){
+                            console.log(props.data)
+                            props.data[props.params].tarefas[props.i].titulo = title
+                            props.data[props.params].tarefas[props.i].descricao = descr
+                            props.data[props.params].tarefas[props.i].status = status
                             setForm("hidden")
                             }else{
                                 setAlert("")
@@ -85,9 +87,9 @@ export function Card(props){
                     <span className={alert}>Algo de errado com as informações passadas, por favor revisar e tentar atualizar novamente</span>
                     <div>
                         <Button className="update" label="salvar" callback={()=>{
-                            props.data.temas[props.i].titulo = title
-                            props.data.temas[props.i].descricao = descr
                             if(title != undefined){
+                                props.data[props.i].titulo = title
+                                props.data[props.i].descricao = descr
                                 setForm("hidden")
                             }else{
                                 setAlert("")

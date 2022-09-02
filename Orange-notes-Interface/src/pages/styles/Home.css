@@ -49,28 +49,28 @@ p.itemDescr{
     color:#e9973A
 }
 
-div.Backlog,div.Done,div.Doing{
+div.Fazer,div.Feito,div.Fazendo{
     width: 30vw;
     font-size: 14px;
 }
 
-.Backlog{
+.Fazer{
     color:lightblue
 }
 
-.Doing{
+.Fazendo{
     color: yellow;
 }
-div.Doing{
+div.Fazendo{
     margin-left: 30vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.Done{
+.Feito{
     color: chartreuse
 }
-div.Done{
+div.Feito{
     margin-left: 60vw;
 }
 

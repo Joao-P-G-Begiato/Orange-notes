@@ -1,7 +1,11 @@
 import {Card} from '../Card/Card.jsx'
-import { Button } from '../Button/Button.jsx'
+import { Link } from "react-router-dom"
+import {Context} from '../../context/Context'
+import { useContext } from 'react'
 
 export function CardContainer(props){
+    const {activeUser} = useContext(Context)
+
     return(
         <section className={props.containerName}>
             {props.dados.map((element, index)=>{
@@ -10,10 +14,12 @@ export function CardContainer(props){
                     i={index} 
                     changeData={props.changeData} 
                     key={index} 
+                    params={props.params}
                     className="card" 
                     title={element.titulo} 
                     descr={element.descricao} 
                     status={element.status}
+                    data={activeUser.temas}
                     isTask={props.isTask}
                     delete={()=>{
                         if(props.dados.length <= 1){
@@ -28,9 +34,7 @@ export function CardContainer(props){
                     />
                 )
             })}
-            {<Button className={props.buttonName} label="voltar" callback={() => {
-                console.log("oi")
-                }}/>}
+            <button className={props.buttonName}><Link to="/home">Voltar </Link></button>
         </section>
     )
 }

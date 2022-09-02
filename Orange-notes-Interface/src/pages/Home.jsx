@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { Header } from '../components/Header/Header'
 import { Button } from "../components/Button/Button"
 import { Forms } from "../components/Forms/Forms"
@@ -6,7 +6,6 @@ import {CardContainer} from '../components/CardContainer/CardContainer'
 import './styles/Home.css'
 import { Context } from "../context/Context"
 import { useNavigate } from "react-router-dom"
-import { requisicao, example } from "../services/Requisicao"
 
 export function Home(){
     const [form, setForm] = useState("hidden")
@@ -14,16 +13,6 @@ export function Home(){
     const [descricao, setDescricao] = useState("")
     const {activeUser, setActiveUser} = useContext(Context)
     const navigate = useNavigate
-
-    // useEffect(()=>{
-    //     requisicao()
-    //     .then((response)=>{
-    //         setActiveUser(response)
-    //         console.log(activeUser)
-    //     })
-    // },[])
-
-    console.log(activeUser)
 
     return(
         <>
