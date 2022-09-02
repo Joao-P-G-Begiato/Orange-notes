@@ -6,6 +6,7 @@ import {CardContainer} from '../components/CardContainer/CardContainer'
 import './styles/Home.css'
 import { Context } from "../context/Context"
 import { useNavigate, useParams } from "react-router-dom"
+import { attRequisicao } from "../services/Requisicao"
 
 export function Tarefa(){
     const [form, setForm] = useState("hidden")
@@ -36,6 +37,7 @@ export function Tarefa(){
                             status:"A Fazer"
                         }
                         activeUser.temas[params.id].tarefas.push(infos)
+                        attRequisicao(activeUser)
                     }}
                     path="/home"
                     />

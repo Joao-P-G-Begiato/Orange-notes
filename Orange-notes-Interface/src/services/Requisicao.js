@@ -1,7 +1,8 @@
+import axios from "axios"
+
 export async function requisicao(){
-    const req = await fetch(`https://orange-notes-api.herokuapp.com/user/orangenotes`)
-    const response = await req.json()
-    return response 
+    const response = await axios.get(`https://orange-notes-api.herokuapp.com/user/orangenotes`)
+    return response.data 
 }
 
 export function tolkenGenerator(login, senha){
@@ -13,15 +14,11 @@ export function tolkenGenerator(login, senha){
     return result
 }
 
-export async function atualizaRequisicao(reqBody){
-    const myInit = {
-        method: 'PUT',
-        body: reqBody
-    }
-
-    const response = await fetch("https://orange-notes-api.herokuapp.com/user/1", myInit)
-    const data = await response.json()
-    return data
+export async function attRequisicao(reqBody){
+    delete reqBody.id
+    await axios.put("https://orange-notes-api.herokuapp.com/user/1", reqBody)
+    .then((response) => console.log(response))
+    .catch((e)=> console.log(e))
 }
 
 export const example = {

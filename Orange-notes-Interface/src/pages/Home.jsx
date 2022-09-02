@@ -6,6 +6,7 @@ import {CardContainer} from '../components/CardContainer/CardContainer'
 import './styles/Home.css'
 import { Context } from "../context/Context"
 import { useNavigate } from "react-router-dom"
+import { attRequisicao } from "../services/Requisicao"
 
 export function Home(){
     const [form, setForm] = useState("hidden")
@@ -34,16 +35,17 @@ export function Home(){
                         onClick={()=>{
                             setForm("hidden")
                             const infos = {
-                                    titulo:title,
-                                    descricao:descricao,
-                                    tarefas:[            {
-                                        titulo:"Titulo da Tarefa",
-                                        descricao: "Descrição da Tarefa",
-                                        status:"A Fazer"
-                                    }]
-                                }
-                                    activeUser.temas.push(infos)
-                                    }}
+                                titulo:title,
+                                descricao:descricao,
+                                tarefas:[            {
+                                    titulo:"Titulo da Tarefa",
+                                    descricao: "Descrição da Tarefa",
+                                    status:"A Fazer"
+                                }]
+                            }
+                            activeUser.temas.push(infos)
+                            attRequisicao(activeUser)
+                            }}
                         path="/home"
                     />
                 </div>
