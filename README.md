@@ -55,7 +55,7 @@ Por mais que tenha uma simulação de login e validação de senha, como é um M
 
 ### ***Utilização da aplicação web*** 📝:
 
-A Aplicação Web recebeu seu deploy pelo heroku e pode ser acessada pelo link: [Orange Notes](about:blank)
+A Aplicação Web recebeu seu deploy pelo heroku e pode ser acessada pelo link: [Orange Notes](https://orange-notes-interface.vercel.app/)
 
 você irá acessar a landing page:
 
