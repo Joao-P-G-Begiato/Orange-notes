@@ -55,13 +55,14 @@ Por mais que tenha uma simulação de login e validação de senha, como é um M
 
 ### ***Utilização da aplicação web*** 📝:
 
-A Aplicação Web recebeu seu deploy pelo heroku e pode ser acessada pelo link: [Orange Notes](https://orange-notes-interface.vercel.app/)
+A Aplicação Web recebeu seu deploy pelo vercel e pode ser acessada pelo link: [Orange Notes](https://orange-notes-interface.vercel.app/)
 
 você irá acessar a landing page:
 
 ![landingPage](./readme/LandingPage.JPG)
 
-clicar em login em seguida será mandado para tela de Login, a validação criada para login funciona apenas com o login e senha de teste:
+clicar em login em seguida será mandado para tela de Login, a validação criada para login funciona apenas com o login e senha de teste:  
+
 ```
 Login: orangenotes
 Senha: orangenotes
@@ -98,7 +99,7 @@ ou então acessar através do [repositorio do GitHub](https://github.com/Joao-P-
 
 ---
 
-### ***Instalão das dependencias*** :
+### ***Instalação das dependencias*** :
 
 *Front-end REACT* 💠 :   
 
@@ -126,7 +127,7 @@ npm run dev
 
 Para trabalhar com o back-end em node, depois de clonar o repositório precisará instalar as dependências do node, para isso rode os seguintes comandos no terminal:
 
-acesse a pasta da interface da aplicação WEB:
+acesse a pasta da API:
 ```
 cd Orange-notes-API
 ```
@@ -206,7 +207,7 @@ snap install insomnia
 
 ## Consumo da API 🤖
 
-Para realizar o cosumir a API você poderá utilizar os métodos GET, PUT, POST e DELETE conforme descritos abaixo, para realizar todas as funções do CRUD(criar, ler, atualizar e deletar) você tem que utilizar o método especifico
+Para realizar o cosumo da API você deve utilizar os verbos do padrão REST: GET, PUT, POST e DELETE conforme descritos abaixo, para realizar cada uma das funções do CRUD(criar, ler, atualizar e deletar) você tem que utilizar o método especifico:
 
 exemplos desses métodos podem ser encontrados na coleção Orange Notes do [Postman](https://go.postman.co/workspace/Team-Workspace~b777d508-7a3d-4af9-80bd-c3ece9efe434/collection/23130357-7acc5718-3e26-47f1-ba67-6817406e0a40?action=share&creator=23130357)
 
@@ -217,18 +218,18 @@ O método GET é feito para exibir os registros da API e pode ser utilizado de d
 1. Selecionar todos os registro de Usuário, Para isso utilize o método GET na rota user: 
 https://orange-notes-api.herokuapp.com/user
 
-2. Selecionar apenas um resgistro filtrado pelo Login. Para isso complemente o link da rota com "/login".
+2. Selecionar apenas um resgistro filtrado pelo Login. Para isso complemente o link da rota user com "/login".
 Ex.: https://orange-notes-api.herokuapp.com/user/orangenotes
 
 ### Método POST (Criar):
 
-O método POST é feito para criar novos registros na API e para ser utilizado deve-se preencher o corpo da requisição conforme modelo abaixo e utilizar a rota: https://orange-notes-api.herokuapp.com/user   
+O método POST é feito para criar novos registros na API e para ser utilizado deve-se preencher o corpo da requisição conforme modelo abaixo e utilizar a rota user: https://orange-notes-api.herokuapp.com/user   
 
-Se as informações passadas no corpo da requisição passarem nas validações ele irá criar um novo item dentro da entidade escolhida com um id único, gerado automáticamente.   
+Se as informações passadas no corpo da requisição passarem nas validações, será criado um novo registro de usuário com um id único, gerado automáticamente.   
   
 ### Método PUT (atualizar):
 
-O método PUT é feito para atualizar os registros existentes e para ser utilizado deve-se preencher o corpo da requisição conforme modelo abaixo e utilizar a rota com o complemento do id do registro que irá ser alterado".
+O método PUT é feito para atualizar os registros existentes e para ser utilizado deve-se preencher o corpo da requisição conforme modelo abaixo e utilizar a rota user com o complemento do id do registro que irá ser alterado.
 
 Ex.: https://orange-notes-api.herokuapp.com/user/1
 
@@ -236,7 +237,7 @@ Se as informações passadas no corpo da requisição passarem na validação el
 
 **Método DELETE**
 
-O método DELETE é feito para excluir um registro e para ser utilizado deve-se usar a rota com complementando do id do registro que irá ser excluído.
+O método DELETE é feito para excluir um registro e para ser utilizado deve-se usar a rota user com complemento do id do registro que irá ser excluído.
 
 Ex.: https://orange-notes-api.herokuapp.com/user/1
 
