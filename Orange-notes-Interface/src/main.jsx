@@ -10,16 +10,17 @@ import { Provider } from './context/Provider.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider>
-    <React.StrictMode>
+  <React.StrictMode>
+    <Provider>
       <BrowserRouter>
         <Routes>
           <Route path='/' element = {<Landpage/>} />
           <Route path='/login' element = {<Login />} />
           <Route path='/home' element = {<Home />} />
+          <Route path='/tarefas/:id' element = {<Home />} />
         </Routes>
       <Footer />
       </BrowserRouter>
-    </React.StrictMode>
-  </Provider>
+    </Provider>
+  </React.StrictMode>
 )

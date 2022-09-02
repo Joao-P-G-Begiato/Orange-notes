@@ -84,3 +84,49 @@ div.Done{
 .cardForm{
     width: 100%
 }
+
+.cancel{
+    position: relative;
+    right: -40px;
+}
+
+.divForm{
+    display: flex;
+    flex-direction: row;
+    width: 30vw;
+}
+
+.cardButtons{
+    display: flex;
+    flex-direction: row;
+}
+
+a{
+    text-decoration: none;
+}
+
+.button{
+    box-sizing: border-box;
+    background-color: #ff5a23;
+    border-radius: 20px;
+    width: 100px;
+    height: 48px;
+    margin: 10px;
+    border-bottom: solid #ff3200 3px;
+    border-right: solid #ff3200 3px;
+    border-left: 0px;
+    border-top: 0px;
+    color: #fff;
+    font-size: 21px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.button:hover{
+    border-color: #e9973A;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(233, 151, 58 , 0.25);
+}
