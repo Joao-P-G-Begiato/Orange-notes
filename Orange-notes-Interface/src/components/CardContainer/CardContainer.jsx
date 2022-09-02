@@ -21,6 +21,7 @@ export function CardContainer(props){
                     status={element.status}
                     data={activeUser.temas}
                     isTask={props.isTask}
+                    containerForm={props.form}
                     delete={()=>{
                         if(props.dados.length <= 1){
                             alert("você precisa ter pelo menos 1 tema e todos os temas precisam conter pelo menos 1 tarefa")

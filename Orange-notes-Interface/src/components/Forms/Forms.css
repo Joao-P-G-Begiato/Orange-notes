@@ -2,6 +2,7 @@ form{
     background-color: rgba(32,32,32, 0.98);
     height: 300px;
     width: 30vw;
+    min-width: 300px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

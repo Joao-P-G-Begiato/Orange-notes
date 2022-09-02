@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
-import { atualizaRequisicao } from "../../services/Requisicao.js"
+import { attRequisicao } from "../../services/Requisicao.js"
 import { Button } from "../Button/Button.jsx"
 import { Input } from "../Input/Input.jsx"
 import {InputList} from '../Input/InputList'
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { Context } from "../../context/Context.jsx"
 
 export function Card(props){
     const [form, setForm] = useState("hidden")
@@ -11,6 +13,7 @@ export function Card(props){
     const [descr, setDescr] = useState(props.descr)
     const [status, setStatus] = useState(props.status)
     const [alert, setAlert] = useState("hidden")
+    const {activeUser} = useContext(Context)
 
     if(props.isTask){
         return (
@@ -22,7 +25,7 @@ export function Card(props){
                         label="-" 
                         callback={()=>{
                             props.delete()
-                        // atualizaRequisicao(props.data)
+                            attRequisicao(activeUser)
                         }}
                     />
                 </p>
@@ -51,6 +54,9 @@ export function Card(props){
                             props.data[props.params].tarefas[props.i].descricao = descr
                             props.data[props.params].tarefas[props.i].status = status
                             setForm("hidden")
+                            attRequisicao(activeUser)
+                            props.containerForm("")
+                            setTimeout(()=>props.containerForm('hidden'),1)
                             }else{
                                 setAlert("")
                             }
@@ -70,7 +76,7 @@ export function Card(props){
             <div className= {`card`} >
                 <p className="itemTitle"><b>{props.title}</b> <Button className="add" label="-" callback={()=>{
                     props.delete()
-                    // atualizaRequisicao(props.data)
+                    attRequisicao(activeUser)
                 }} /></p>
                 <p className="itemDescr">{props.descr}</p>
                 <div className="cardButtons">
@@ -91,6 +97,9 @@ export function Card(props){
                                 props.data[props.i].titulo = title
                                 props.data[props.i].descricao = descr
                                 setForm("hidden")
+                                attRequisicao(activeUser)
+                                props.containerForm("")
+                                setTimeout(()=>props.containerForm('hidden'),1)
                             }else{
                                 setAlert("")
                         }}} />

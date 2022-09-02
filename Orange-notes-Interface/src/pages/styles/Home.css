@@ -1,7 +1,7 @@
 .homeMain{
     margin-top: 83px;
     background-color: rgba(32,32,32, 0.98);
-    min-height: calc(100% - 203px);
+    min-height: calc(100vh - 203px);
 }
 
 .h1Home{
@@ -16,12 +16,13 @@
     word-wrap: break-word;
 }
 
-.themeContainer{
+.themeContainer {
     margin-top: 20px;
     margin-left: 20px;
+    padding-bottom: 20px;
     display: grid;
-    grid-template-columns: 25% 25% 25%;
-    gap:5%;
+    grid-template-columns: 24% 24% 24% 24%;
+    gap: 15px;
 }
 
 .card{
@@ -39,6 +40,7 @@
 .taskContainer{
     display: grid;
     grid-template-columns: 100%;
+    margin-left: 3%
 }
 
 p.itemDescr{
@@ -47,6 +49,17 @@ p.itemDescr{
     width: 90%;
     text-align: center;
     color:#e9973A
+}
+
+b{
+    text-align: center;
+    text-justify: center;
+}
+
+.itemTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 div.Fazer,div.Feito,div.Fazendo{
@@ -105,6 +118,7 @@ a{
     text-decoration: none;
 }
 
+
 .button{
     box-sizing: border-box;
     background-color: #ff5a23;
@@ -129,4 +143,40 @@ a{
     border-color: #e9973A;
     outline: 0;
     box-shadow: 0 0 0 0.1rem rgba(233, 151, 58 , 0.25);
+}
+
+@media(max-width: 900px){
+    .h1Home{
+        font-size: 16px;
+    }
+
+    .itemTitle{
+        flex-direction: column;
+    }
+
+    .themeContainer{
+        grid-template-columns: 45% 45%;
+    }
+}
+
+@media(max-width: 700px){
+    .h1Home{
+        font-size: 16px;
+    }
+
+    .themeContainer{
+        margin-left: 2%;
+        grid-template-columns: 98%;
+        align-items: center;
+    }
+
+    div.Feito, div.Fazendo, div.Fazer{
+        margin: 2%;
+        width: 96%
+    }
+
+    .back{
+        justify-self: center;
+    }
+
 }

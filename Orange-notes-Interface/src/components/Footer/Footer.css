@@ -10,3 +10,10 @@
     margin:0;
 }
 
+@media(max-width: 700px){
+    .footerTxt{
+        width: 80vw;
+        text-align: center;
+        margin: 5px;
+    }
+}
