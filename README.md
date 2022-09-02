@@ -19,7 +19,7 @@ Diante da nossa problemática surge o **Orange Notes**, uma plataforma onde as p
 
 Pensando na problemática, percebi que os pontos mais importantes seriam: Organização e Visualização do progresso, para solucionar essas questões tomei como base o Kanban que é uma metodoliga ágil que auxilia na organização de projetos e tarefas bem como traz uma visualização clara tanto que está sendo feito, do que já foi concluído e o que ainda precisa ser feito. Acredito que esse fator visual é muito importante, por isso na hora de produzir a aplicação web tomei como meta duas coisas, trazer esse impacto visual para o usuário, bem como uma aplicação simples de fácil uso, pois durante esse processo de aprendizado é muito importante ter ao seu dispor ferramentas facéis de utilizar. 
 
-Levando em consideração esses fatos levantados no paragráfo anterior estrutrei a aplicação para receber notas textuais chamadas de tarefas que recebem um título, uma descrição e um status, além de ter cores diferentes para cada status (A Fazer Roxo, Fazendo Amarelo e Feito verde) também define em qual coluna que a tarefa aparece, sendo A Fazer ocupa a coluna esquerda da tela, Fazendo ocupa a coluna central e Feiot ocupa a coluna direita da tela, trasmitindo uma maior sensação de progresso hora que você começa a visualizar que suas tarefas na coluna de Feito.
+Levando em consideração esses fatos levantados no paragráfo anterior estrutrei a aplicação para receber notas textuais chamadas de tarefas que recebem um título, uma descrição e um status, além de ter cores diferentes para cada status (A Fazer Roxo, Fazendo Amarelo e Feito verde) também define em qual coluna que a tarefa aparece, sendo A Fazer ocupa a coluna esquerda da tela, Fazendo ocupa a coluna central e Feito ocupa a coluna direita da tela, trasmitindo uma maior sensação de progresso hora que você começa a visualizar que suas tarefas na coluna de Feito.
 
 ---
 
@@ -92,7 +92,7 @@ Primeiramente será necessário clonar esse repositório, você acessar pelo ter
 ```
 git clone https://github.com/Joao-P-G-Begiato/Orange-notes.git
 ```
-ou então acessar atracés do [repositorio do GitHub](https://github.com/Joao-P-G-Begiato/Orange-notes) clicar em code e depois Download ZIP:   
+ou então acessar através do [repositorio do GitHub](https://github.com/Joao-P-G-Begiato/Orange-notes) clicar em code e depois Download ZIP:   
 
 ![clone](./readme/Clone.JPG)  
 
