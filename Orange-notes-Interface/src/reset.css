@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe,
+body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -26,7 +26,4 @@ body {
     line-height: 1;
     background-image: url(./Background.JPG);
     font-family: 'Montserrat', sans-serif;
-}
-#root{
-    height: 100vh;
 }

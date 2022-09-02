@@ -31,3 +31,14 @@
     align-items: center;
     justify-content: center;
 }
+
+@media(max-width: 700px){
+    .conteudo{
+        flex-direction: column;
+}
+
+.divmenor{
+    width: 80vw
+}
+
+}

@@ -46,7 +46,7 @@ export function Tarefa(){
                     containerName="taskContainer" 
                     changeData={navigate} 
                     dados={activeUser.temas[params.id].tarefas} 
-                    buttonName=""
+                    buttonName="back"
                     params={params.id}
                     isTask = {true}
                     form={setForm}
