@@ -2,7 +2,7 @@
 
 ## Projeto desenvolvido para o Hackaton 🔥 Esquenta Programa de Formação 🔥 da Orange Juice.
 
-[Sobre](#sobre-) - [Softwares & Ferramentas](#softwares--ferramentas-utilizadas-neste-projeto-) - [Deploy](#deploy-) - [Consumo da API](#consumo-da-API-) - [Licença](#licenca-) - [Contato](#contato-)
+[Sobre](#sobre-) - [Softwares & Ferramentas](#softwares--ferramentas-utilizadas-neste-projeto-) - [Deploy](#deploy-) - [Consumo da API](#consumo-da-API-) - [Contato](#contato-) - [Licença](#licença-)
 
 ## Sobre 🔎    
 
@@ -270,7 +270,7 @@ Ele irá deletar o resgitro escolhido através do id único passado na rota.
 ```
 ---
 
-## Contato 
+## Contato 📬
 
 Projeto desenvolvido por mim, João Paulo Gotardi Begiato e para me contatar pode-se utilizar os seguintes meios:
 
